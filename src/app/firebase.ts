@@ -3,7 +3,7 @@ import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyADuYg9ee_XivWAbpEcDJxPu-L4MgkgPt4",
+  apiKey: "AIzaSyDmHrBhWC7enKBGgMNkfBlzSSnwFSQdpFo",
   authDomain: "car-detailing-mgr.firebaseapp.com",
   projectId: "car-detailing-mgr",
   storageBucket: "car-detailing-mgr.firebasestorage.app",
