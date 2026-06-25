@@ -1,0 +1,32 @@
+<h2>Completed Jobs</h2>
+
+<p *ngIf="isLoading">
+  Loading jobs...
+</p>
+
+<p class="error" *ngIf="!isLoading && errorMessage">
+  {{ errorMessage }}
+</p>
+
+<div *ngIf="!isLoading && !errorMessage && jobs.length === 0">
+  <p>No jobs have been added yet.</p>
+</div>
+
+<div *ngIf="!isLoading && !errorMessage">
+  <div class="job-card" *ngFor="let job of jobs">
+    <h3>{{ job.customerName }}</h3>
+
+    <p><strong>Vehicle:</strong> {{ job.vehicle }}</p>
+    <p><strong>Service:</strong> {{ job.serviceType }}</p>
+    <p><strong>Date:</strong> {{ job.dateCompleted }}</p>
+    <p><strong>Price:</strong> ${{ job.price }}</p>
+
+    <p *ngIf="job.notes">
+      <strong>Notes:</strong> {{ job.notes }}
+    </p>
+
+    <button type="button" (click)="deleteJob(job.id)" [disabled]="isDeleting">
+      {{ isDeleting ? 'Deleting...' : 'Delete' }}
+    </button>
+  </div>
+</div>

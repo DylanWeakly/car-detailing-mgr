@@ -1,0 +1,49 @@
+<h2>Add Completed Job</h2>
+
+<form (ngSubmit)="saveJob()" class="job-form">
+  <label>
+    Customer Name
+    <input type="text" [(ngModel)]="job.customerName" name="customerName" required>
+  </label>
+
+  <label>
+    Vehicle
+    <input type="text" [(ngModel)]="job.vehicle" name="vehicle" placeholder="2018 Honda CR-V" required>
+  </label>
+
+  <label>
+    Service Type
+    <select [(ngModel)]="job.serviceType" name="serviceType" required>
+      <option value="">Select service</option>
+      <option value="Exterior Detail">Exterior Detail</option>
+      <option value="Interior Detail">Interior Detail</option>
+      <option value="Full Detail">Full Detail</option>
+      <option value="Wash & Wax">Wash & Wax</option>
+      <option value="Paint Correction">Paint Correction</option>
+      <option value="Ceramic Coating">Ceramic Coating</option>
+    </select>
+  </label>
+
+  <label>
+    Date Completed
+    <input type="date" [(ngModel)]="job.dateCompleted" name="dateCompleted" required>
+  </label>
+
+  <label>
+    Price
+    <input type="number" [(ngModel)]="job.price" name="price" required>
+  </label>
+
+  <label>
+    Notes
+    <textarea [(ngModel)]="job.notes" name="notes"></textarea>
+  </label>
+
+  <button type="submit" [disabled]="isSaving">
+  {{ isSaving ? 'Saving...' : 'Save Job' }}
+</button>
+
+<p class="error" *ngIf="errorMessage">
+  {{ errorMessage }}
+</p>
+</form>

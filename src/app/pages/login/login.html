@@ -1,0 +1,36 @@
+<div class="auth-page">
+  <form class="auth-card" (ngSubmit)="login()">
+    <h2>Log In</h2>
+
+    <label>
+      Email
+      <input
+        type="email"
+        name="email"
+        [(ngModel)]="email"
+        required
+      />
+    </label>
+
+    <label>
+      Password
+      <input
+        type="password"
+        name="password"
+        [(ngModel)]="password"
+        required
+      />
+    </label>
+
+    <p class="error" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </p>
+
+    <button type="submit">Log In</button>
+
+    <p>
+      Need an account?
+      <a routerLink="/register">Create one</a>
+    </p>
+  </form>
+</div>
